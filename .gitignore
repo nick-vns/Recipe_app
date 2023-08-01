@@ -3,3 +3,4 @@
 
 *.bak
 *.sqlite3
+src/db.sqlite3
