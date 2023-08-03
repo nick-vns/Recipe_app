@@ -18,3 +18,16 @@ class RecipeModelTest(TestCase):
         recipe = Recipe.objects.get(id=1)
         recipe_name_label = recipe._meta.get_field('name').verbose_name
         self.assertEqual(recipe_name_label, 'name')
+
+    def test_cooking_time(self):
+        recipe = Recipe.objects.get(id=1)
+        recipe_cooking_time = recipe.cooking_time
+        self.assertEqual(recipe_cooking_time, 5)
+
+    def test_get_absolute_url(self):
+        recipe = Recipe.objects.get(id=1)
+        self.assertEqual(recipe.get_absolute_url(), '/list/1')
+
+    def test_calc_difficulty(self):
+        recipe = Recipe.objects.get(id=1)
+        self.assertEqual(recipe.calc_difficulty(), 'Easy')
