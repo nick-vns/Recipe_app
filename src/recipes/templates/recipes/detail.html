@@ -3,12 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
       href="{% static 'recipes/images/favicon.png' %}"
     />
-    <title>Recipe Home</title>
+    <title>Recipe Detail</title>
     <style type="text/css">
       body {
         background: url("{% static 'recipes/images/background.jpg' %}")
@@ -21,7 +21,14 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to Recipe App</h1>
-    <br />
+    <h2>{{object.name}}</h2>
+    <img src="{{object.pic.url}}" />
+    <div>
+      <b>Name: </b> {{object.name}} <br />
+      <b>Description: </b> {{object.description}} <br />
+      <b>Cooking Time: </b> {{object.cooking_time}} <br />
+      <b>Difficulty: </b> {{object.calc_difficulty}} <br />
+      <b>Ingredients: </b> {{object.ingredients}} <br />
+    </div>
   </body>
 </html>

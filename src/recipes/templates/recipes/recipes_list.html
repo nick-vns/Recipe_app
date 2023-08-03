@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe List</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'recipes/images/favicon.png' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'recipes/css/styles.css' %}"
+    />
+
+    <style type="text/css">
+      body {
+        background: url("{% static 'recipes/images/background.jpg' %}")
+          no-repeat fixed;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="recipe_grid">
+      {% for object in object_list %}
+      <div class="grid_tem">
+        <h3>
+          <a class="recipe_name" href="{{object.get_absolute_url}}">
+            {{object.name}}
+          </a>
+        </h3>
+        <img class="recipe_img" src="{{object.pic.url}}" />
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
