@@ -8,6 +8,11 @@
       rel="shortcut icon"
       href="{% static 'recipes/images/favicon.png' %}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'recipes/css/styles.css' %}"
+    />
     <title>Recipe Home</title>
     <style type="text/css">
       body {
@@ -23,5 +28,7 @@
   <body>
     <h1>Welcome to Recipe App</h1>
     <br />
+    <h3>Log in to your account to see our list of recipes</h3>
+    <a href="{%url 'login' %}" class="login_btn"> Login </a>
   </body>
 </html>

@@ -3,7 +3,6 @@ from .views import recipes_home
 from .views import RecipeListView
 from .views import RecipeDetailView
 
-
 app_name = 'recipes'
 
 urlpatterns = [
