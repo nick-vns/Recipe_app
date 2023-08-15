@@ -9,7 +9,7 @@
       type="text/css"
       href="{% static 'recipes/css/styles.css' %}"
     />
-    <title>Recipe Detail</title>
+    <title>Recipe Search</title>
     <link
       rel="shortcut icon"
       href="{% static 'recipes/images/favicon.png' %}"
@@ -19,27 +19,40 @@
         background: url("{% static 'recipes/images/background.jpg' %}")
           no-repeat fixed;
         background-size: cover;
+        color: black;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
     </style>
   </head>
+
+  <hr />
   <body>
     <div class="nav_bar">
       <a class="login_btn" href="{%url 'recipes:list' %}">Recipes</a>
       <a class="login_btn" href="{%url 'recipes:search' %}">Search</a>
       <a class="login_btn" href="{%url 'logout' %}">Logout</a>
     </div>
-    <h2 class="details_name">{{object.name}}</h2>
-    <img class="recipe_img_detail" src="{{object.pic.url}}" />
-    <div class="details_discrip">
-      <b>Name: </b> {{object.name}} <br />
-      <b>Description: </b> {{object.description}} <br />
-      <b>Cooking Time: </b> {{object.cooking_time}} <br />
-      <b>Difficulty: </b> {{object.calc_difficulty}} <br />
-      <b>Ingredients: </b> {{object.ingredients}} <br />
+    <h1 class="details_name">Search for recipes</h1>
+    <hr />
+    <form class="login_form" action="" method="POST">
+      {% csrf_token %} {{form}}
+      <button class="login_btn" submit>Search</button>
+    </form>
+    <div class="search">
+      <br />
+      <br />
+      {% if recipe_df %} {{recipe_df|safe}}
+      <br />
+      <img alt="chart" src="data:image/png;base64, {{chart|safe}}" />
+      {% else %}
+      <h3 class="recipe_short">
+        No data found, try to look for something else.
+      </h3>
+      {% endif %}
     </div>
+    <br />
     <a href="{% url 'recipes:list' %}" class="login_btn">Back</a>
     <script>
       function goBack() {

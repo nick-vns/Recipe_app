@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width= , initial-scale=1.0" />
     <link
-      rel="shortcut icon"
-      href="{% static 'recipes/images/favicon.png' %}"
-    />
-    <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'recipes/css/styles.css' %}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'recipes/images/favicon.png' %}"
     />
     <title>Recipe Home</title>
     <style type="text/css">
@@ -26,9 +26,11 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to Recipe App</h1>
+    <h1 class="details_name">Welcome to Recipe App</h1>
     <br />
-    <h3>Log in to your account to see our list of recipes</h3>
+    <h3 class="details_discrip">
+      Log in to your account to see our list of recipes
+    </h3>
     <a href="{%url 'login' %}" class="login_btn"> Login </a>
   </body>
 </html>

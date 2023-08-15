@@ -1,15 +1,39 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'recipes/css/styles.css' %}"
+    />
     <title>Recipe logout</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'recipes/images/favicon.png' %}"
+    />
+    <style type="text/css">
+      body {
+        background: url("{% static 'recipes/images/background.jpg' %}")
+          no-repeat fixed;
+        background-size: cover;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
     <div style="width: 25%">
-      <h2>Successfully Logged Out!</h2>
+      <h2 class="details_name">Successfully Logged Out!</h2>
       <br />
-      <a href="{%url 'login' %}"> Login </a>
+      <div class="log_bth">
+        <a class="login_btn" href="{%url 'recipes:home' %}">Go home</a>
+        <a class="login_btn" href="{%url 'login' %}"> Login again? </a>
+      </div>
     </div>
   </body>
 </html>

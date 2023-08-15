@@ -1,12 +1,33 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'recipes/css/styles.css' %}"
+    />
     <title>Login page</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'recipes/images/favicon.png' %}"
+    />
+    <style type="text/css">
+      body {
+        background: url("{% static 'recipes/images/background.jpg' %}")
+          no-repeat fixed;
+        background-size: cover;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
-    <h1>Login</h1>
+    <h1 class="details_name">Log in to access your recipes.</h1>
     {% comment %} print heading {% endcomment %} {% comment %} check for error
     message {% endcomment %} {% if error_message %}
     <div>{{error_message}}</div>
@@ -14,10 +35,12 @@
     <form action="" method="POST">
       {% comment %} add Django security token {% endcomment %} {% csrf_token %}
       {% comment %} print form received from view {% endcomment %}
-      <div>{{form}}</div>
+      <div class="login_form">{{form}}</div>
 
       {% comment %} add button {% endcomment %}
-      <button type="submit">Login</button>
+      <div class="log_bth">
+        <button type="submit" class="login_btn">Login</button>
+      </div>
     </form>
   </body>
 </html>

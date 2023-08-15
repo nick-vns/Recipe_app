@@ -4,41 +4,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe List</title>
-    <link
-      rel="shortcut icon"
-      href="{% static 'recipes/images/favicon.png' %}"
-    />
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'recipes/css/styles.css' %}"
     />
-
+    <title>Recipe List</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'recipes/images/favicon.png' %}"
+    />
     <style type="text/css">
       body {
         background: url("{% static 'recipes/images/background.jpg' %}")
           no-repeat fixed;
         background-size: cover;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
     </style>
   </head>
   <body>
-    <div>
-      <a href="{%url 'logout' %}">Logout</a>
+    <div class="nav_bar">
+      <a class="login_btn" href="{%url 'recipes:list' %}">Recipes</a>
+      <a class="login_btn" href="{%url 'recipes:search' %}">Search</a>
+      <a class="login_btn" href="{%url 'logout' %}">Logout</a>
     </div>
     <div class="recipe_grid">
       {% for object in object_list %}
-      <div class="grid_tem">
-        <h3>
+      <div>
+        <h3 style="text-align: center">
           <a class="recipe_name" href="{{object.get_absolute_url}}">
             {{object.name}}
           </a>
         </h3>
         <img class="recipe_img" src="{{object.pic.url}}" />
+        <div class="recipe_short">
+          <b>Cooking Time: </b> {{object.cooking_time}} min <br />
+          <b>Difficulty: </b> {{object.calc_difficulty}} <br />
+        </div>
       </div>
       {% endfor %}
     </div>
