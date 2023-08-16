@@ -28,7 +28,8 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://peaceful-castle-07076-327776110990.herokuapp.com']
+ALLOWED_HOSTS = [
+    'https://peaceful-castle-07076-327776110990.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -122,9 +123,9 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 
 MEDIA_URL = '/media/'
