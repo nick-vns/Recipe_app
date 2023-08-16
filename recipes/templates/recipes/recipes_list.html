@@ -20,6 +20,27 @@
           no-repeat fixed;
         background-size: cover;
       }
+      @media screen and (max-width: 600px) {
+        .recipe_grid,
+        .recipe_name {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 10px 0;
+          min-height: 100%;
+        }
+      }
+      @media screen and (min-width: 600px) {
+        .recipe_name {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .recipe_grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
     </style>
   </head>
   <body>
